@@ -44,16 +44,14 @@ public class DFSCharGraphTest {
         a.addNeighbour(r);
         b.addNeighbour(h);
         b.addNeighbour(i);
-      //  b.addNeighbour(a);
         b.addNeighbour(f);
         c.addNeighbour(j);
-       // c.addNeighbour(b);
+        c.addNeighbour(b);
         d.addNeighbour(e);
         e.addNeighbour(g);
         j.addNeighbour(k);
         j.addNeighbour(c);
         k.addNeighbour(i);
-        //k.addNeighbour(b);
         f.addNeighbour(r);
 
         ts = new DepthFirstSearch(r);
@@ -88,15 +86,15 @@ public class DFSCharGraphTest {
         }
 
         char solutions[][] = {
-            {'r', 'c', 'b', 'a'},
-            {'r', 'b'},
+            {'r', 'a'},
+            {'r', 'c','b'},
             {'r', 'c'},
             {'r', 'a', 'd'},
             {'r', 'a', 'e'},
-            {'r', 'a', 'f'},
+            {'r', 'c','b','f'},
             {'r', 'a', 'e', 'g'},
-            {'r', 'b', 'h'},
-            {'r', 'b', 'i'},
+            {'r', 'c','b', 'h'},
+            {'r', 'c','b', 'i'},
             {'r', 'c', 'j'},
             {'r', 'c', 'j', 'k'},
             {'r'}
