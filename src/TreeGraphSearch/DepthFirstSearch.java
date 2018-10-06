@@ -26,10 +26,6 @@ public class DepthFirstSearch {
         if (root == null || depth == -1) {
             return null;
         }
-        if (explored.contains(root)) {
-            System.out.println(((Node) root).getValue());
-            return null;
-        }
         currentPath.add(root);
         explored.add(root);
         if (((Node) currentPath.peek()).getValue().equals(value)) {
@@ -40,7 +36,7 @@ public class DepthFirstSearch {
 
         for (Node n : (ArrayList<Node>) root.getNeighbours()) {
 
-            if (n != null) {
+            if (n != null && !explored.contains(n)) {
                 noNeighbours = false;
             }
         }
@@ -48,16 +44,18 @@ public class DepthFirstSearch {
             return null;
         }
 
+        int added=0;
         for (Node n : (ArrayList<Node>) root.getNeighbours()) {
             if (!explored.contains(n)) {
                 fringe.add(n);
-            }
+                ++added;
+            }   
 
         }
 
         List<Node> path = null;
 
-        for (int i = 0; i < root.getNeighbours().size(); ++i) {
+        for (int i = 0; i < added; ++i) {
 
             path = searchTree(value, (Stack) fringe, (Stack) currentPath.clone(), explored, (Node) fringe.pop(), depth - 1);
             if (path != null) {

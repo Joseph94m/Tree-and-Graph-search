@@ -44,16 +44,16 @@ public class DFSCharGraphTest {
         a.addNeighbour(r);
         b.addNeighbour(h);
         b.addNeighbour(i);
-        b.addNeighbour(a);
+      //  b.addNeighbour(a);
         b.addNeighbour(f);
         c.addNeighbour(j);
-        c.addNeighbour(b);
+       // c.addNeighbour(b);
         d.addNeighbour(e);
         e.addNeighbour(g);
         j.addNeighbour(k);
         j.addNeighbour(c);
         k.addNeighbour(i);
-        k.addNeighbour(b);
+        //k.addNeighbour(b);
         f.addNeighbour(r);
 
         ts = new DepthFirstSearch(r);
