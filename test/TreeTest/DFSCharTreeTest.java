@@ -90,7 +90,7 @@ public class DFSCharTreeTest {
             char result[] = new char[path.size()];
 
             for (int i = 0; i < path.size(); ++i) {
-                result[i] = ((Character)(path.get(i).getValue())).charValue();
+                result[i] = ((Character) (path.get(i).getValue())).charValue();
 
             }
             Assert.assertArrayEquals(result, solutions[j]);

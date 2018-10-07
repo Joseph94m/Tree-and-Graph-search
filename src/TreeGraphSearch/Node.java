@@ -36,5 +36,5 @@ public abstract class Node<T extends Object> {
     }
 
     @Override
-    public abstract String toString();
+    public abstract String   toString();
 }

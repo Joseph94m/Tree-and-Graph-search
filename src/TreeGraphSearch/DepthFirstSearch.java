@@ -32,24 +32,16 @@ public class DepthFirstSearch {
             return currentPath;
         }
 
-        boolean noNeighbours = true;
-
-        for (Node n : (ArrayList<Node>) root.getNeighbours()) {
-
-            if (n != null && !explored.contains(n)) {
-                noNeighbours = false;
-            }
-        }
-        if (noNeighbours) {
+        if (explored.containsAll(root.getNeighbours())) {
             return null;
         }
-
-        int added=0;
+        int added = 0;
+        
         for (Node n : (ArrayList<Node>) root.getNeighbours()) {
             if (!explored.contains(n)) {
                 fringe.add(n);
                 ++added;
-            }   
+            }
 
         }
 
