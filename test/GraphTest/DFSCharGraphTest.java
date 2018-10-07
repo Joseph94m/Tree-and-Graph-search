@@ -53,6 +53,8 @@ public class DFSCharGraphTest {
         j.addNeighbour(c);
         k.addNeighbour(i);
         f.addNeighbour(r);
+        f.addNeighbour(h);
+        g.addNeighbour(i);
 
         ts = new DepthFirstSearch(r);
     }
@@ -93,7 +95,7 @@ public class DFSCharGraphTest {
             {'r', 'a', 'e'},
             {'r', 'c','b','f'},
             {'r', 'a', 'e', 'g'},
-            {'r', 'c','b', 'h'},
+            {'r', 'c','b', 'f','h'},
             {'r', 'c','b', 'i'},
             {'r', 'c', 'j'},
             {'r', 'c', 'j', 'k'},
