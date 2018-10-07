@@ -1,5 +1,10 @@
 ## This repository provides a simple implementation for Depth First Search (and in the future, BFS, UCS, A*) for trees and graphs.
-### Tree.png and Graph.png show the tree and the graph that the algorithms traverse.
+### The following image shows the tree that we run the tests on:
 
 
-![alt text](Tree.png "Logo Title Text 1")
+![alt text](Tree.png "Tree")
+
+
+### The following image shows the graph that we run the tests on:
+
+![alt text](Graph.png "Graph")
