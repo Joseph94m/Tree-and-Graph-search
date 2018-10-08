@@ -14,6 +14,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author Joseph
+ * @github joseph94m
  */
 public class DFSCharTreeTest {
 

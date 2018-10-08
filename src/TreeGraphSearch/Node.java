@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Joseph
+ * @github joseph94m
  */
 public abstract class Node<T extends Object> {
 

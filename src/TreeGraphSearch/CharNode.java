@@ -3,6 +3,7 @@ package TreeGraphSearch;
 /**
  *
  * @author Joseph
+ * @github joseph94m
  */
 public class CharNode<T extends Character> extends Node {
 
