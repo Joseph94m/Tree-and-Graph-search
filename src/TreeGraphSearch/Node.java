@@ -18,6 +18,9 @@ public abstract class Node<T extends Object> {
 
     @Override
     public abstract String toString();
+    
+    @Override
+    public abstract Object clone();
 
     public ArrayList<Node> getNeighbours() {
         return neighbours;

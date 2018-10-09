@@ -28,4 +28,9 @@ public class CharNode<T extends Character> extends Node {
 
     }
 
+    @Override
+    public Object clone() {
+      return new CharNode(value);
+    }
+
 }
