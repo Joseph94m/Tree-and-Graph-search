@@ -11,7 +11,7 @@ import java.util.Stack;
  * @author Joseph
  * @github joseph94m
  */
-public class DepthFirstSearch {
+public class DepthFirstSearch<T extends Object> {
 
     private Node root;
 
@@ -19,11 +19,11 @@ public class DepthFirstSearch {
         this.root = root;
     }
 
-    public List<Node> searchTree(char value, int depth) {
+    public List<Node> searchTree(T value, int depth) {
         return searchTree(value, new Stack(), new Stack(), new HashSet<Node>(), root, depth);
     }
 
-    private List<Node> searchTree(char value, Stack fringe, Stack currentPath, Set<Node> explored, Node root, int depth) {
+    private List<Node> searchTree(T value, Stack fringe, Stack currentPath, Set<Node> explored, Node root, int depth) {
         if (root == null || depth == -1) {
             return null;
         }
