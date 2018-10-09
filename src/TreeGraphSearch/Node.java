@@ -12,8 +12,12 @@ public abstract class Node<T extends Object> {
     private T value;
     private ArrayList<Node> neighbours;
 
+
     @Override
     public abstract boolean equals(Object obj);
+
+    @Override
+    public abstract String toString();
 
     public ArrayList<Node> getNeighbours() {
         return neighbours;
@@ -36,6 +40,4 @@ public abstract class Node<T extends Object> {
         neighbours = new ArrayList<Node>();
     }
 
-    @Override
-    public abstract String   toString();
 }

@@ -7,7 +7,7 @@ package TreeGraphSearch;
  */
 public class CharNode<T extends Character> extends Node {
 
-    T value;
+    private T value;
 
     public CharNode(T value) {
         super(value);
@@ -16,7 +16,7 @@ public class CharNode<T extends Character> extends Node {
 
     @Override
     public boolean equals(Object obj) {
-        if (((Character)((Node) obj).getValue()).equals(new Character(value))) {
+        if (((Character) ((Node) obj).getValue()).equals(new Character(value))) {
             return true;
         }
         return false;
