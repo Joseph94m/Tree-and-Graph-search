@@ -29,6 +29,7 @@ public class DepthFirstSearch<T extends Object> {
         }
         currentPath.add(root);
         explored.add(root);
+
         if (((Node) currentPath.peek()).getValue().equals(value)) {
             return currentPath;
         }
@@ -40,9 +41,7 @@ public class DepthFirstSearch<T extends Object> {
                 fringe.add(n);
                 ++added;
             }
-
         }
-
         List<Node> path = null;
 
         for (int i = 0; i < added; ++i) {
