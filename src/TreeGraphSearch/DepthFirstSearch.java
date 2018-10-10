@@ -23,7 +23,7 @@ public class DepthFirstSearch<T extends Object> {
         return searchTree(value, new Stack(), new Stack(), new HashSet<Node>(), root, depth);
     }
 
-    private List<Node> searchTree(T value, Stack fringe, Stack currentPath, Set<Node> explored, Node root, int depth) {
+    private List<Node> searchTree(T value, Stack<Node> fringe, Stack<Node> currentPath, Set<Node> explored, Node root, int depth) {
         if (root == null || depth == -1) {
             return null;
         }
@@ -35,7 +35,6 @@ public class DepthFirstSearch<T extends Object> {
         }
 
         int added = 0;
-
         for (Node n : (ArrayList<Node>) root.getNeighbours()) {
             if (!explored.contains(n)) {
                 fringe.add(n);
