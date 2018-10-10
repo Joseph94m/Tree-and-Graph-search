@@ -22,61 +22,32 @@ public class DepthFirstSearch<T extends Object> {
     }
 
     public List<Node> searchTree(T value, int depth, String Strategy) {
-        if (Strategy.equals("DFS")) {
-            return DFS(value, new Stack(), new Stack(), new HashSet<Node>(), root, depth);
-        }
 
-        if (Strategy.equals("BFS")) {
-            return BFS(value, root, depth);
-        }
-
-        throw new IllegalArgumentException(Strategy + " Unknown strategy");
-    }
-
-    private List<Node> DFS(T value, Stack<Node> fringe, Stack<Node> currentPath, Set<Node> explored, Node root, int depth) {
-        if (root == null || depth == -1) {
-            return null;
-        }
-        currentPath.add(root);
-        explored.add(root);
-
-        if (((Node) currentPath.peek()).getValue().equals(value)) {
-            return currentPath;
-        }
-
-        int added = 0;
-        for (Node n : (ArrayList<Node>) root.getNeighbours()) {
-            if (!explored.contains(n)) {
-                fringe.add(n);
-                ++added;
-            }
-        }
-        List<Node> path = null;
-
-        for (int i = 0; i < added; ++i) {
-
-            path = DFS(value, (Stack) fringe, (Stack) currentPath.clone(), explored, (Node) fringe.pop(), depth - 1);
-            if (path != null) {
-
-                return path;
-            }
-        }
-
-        return null;
+        return BFS(value, root, depth, Strategy);
 
     }
 
-    private List<Node> BFS(T value, Node root, int depth) {
+    private List<Node> BFS(T value, Node root, int depth, String Strategy) {
+        if (!Strategy.equals("DFS") && !Strategy.equals("BFS")) {
+            throw new IllegalArgumentException(Strategy + " Unknown strategy");
+        }
 
         List<Stack<Node>> queue = new LinkedList();
         Stack<Node> tmp = new Stack();
         tmp.add(root);
         queue.add(tmp);
         Stack<Node> newPath = null;
-        Stack<Node> path;
+        Stack<Node> path = null;
         while (!queue.isEmpty()) {
-            path = queue.get(0);
-            queue.remove(0);
+            if (Strategy.equals("DFS")) {
+                path = queue.get(queue.size() - 1);
+                 queue.remove(queue.size() - 1);
+            }
+              if (Strategy.equals("BFS")) {
+                path = queue.get(0);
+                 queue.remove(0);
+            }
+           
             if (path.peek().getValue().equals(value)) {
                 return path;
             }
