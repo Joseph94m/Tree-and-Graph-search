@@ -59,9 +59,7 @@ public class UninformedSearch<T extends Object> {
                     queue.add(newPath);
                 }
             }
-
         }
-
         return null;
     }
 }
