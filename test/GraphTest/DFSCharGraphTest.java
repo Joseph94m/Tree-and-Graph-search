@@ -78,10 +78,10 @@ public class DFSCharGraphTest {
 
     @Test
     public void CharGraphDFS() {
-
+        String strat = "DFS";
         char chars[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'r'};
         for (char c : chars) {
-            List<Node> path = ts.searchTree(c, 15);
+            List<Node> path = ts.searchTree(c, 15, strat);
             for (Node n : path) {
                 System.out.print(n.getValue() + " ");
             }
@@ -90,21 +90,21 @@ public class DFSCharGraphTest {
 
         char solutions[][] = {
             {'r', 'a'},
-            {'r', 'c','b'},
+            {'r', 'c', 'b'},
             {'r', 'c'},
             {'r', 'a', 'd'},
             {'r', 'a', 'e'},
-            {'r', 'c','b','f'},
+            {'r', 'c', 'b', 'f'},
             {'r', 'a', 'e', 'g'},
-            {'r', 'c','b', 'f','h'},
-            {'r', 'c','b', 'i'},
+            {'r', 'c', 'b', 'f', 'h'},
+            {'r', 'c', 'b', 'i'},
             {'r', 'c', 'j'},
             {'r', 'c', 'j', 'k'},
             {'r'}
         };
 
         for (int j = 0; j < chars.length; ++j) {
-            List<Node> path = ts.searchTree(chars[j], 15);
+            List<Node> path = ts.searchTree(chars[j], 15, strat);
 
             char result[] = new char[path.size()];
 
