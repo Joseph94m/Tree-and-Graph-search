@@ -1,6 +1,6 @@
 package TreeTest;
 
-import TreeGraphSearch.DepthFirstSearch;
+import TreeGraphSearch.UninformedSearch;
 import TreeGraphSearch.*;
 import java.util.List;
 import org.junit.After;
@@ -16,11 +16,11 @@ import static org.junit.Assert.*;
  * @author Joseph
  * @github joseph94m
  */
-public class DFSCharTreeTest {
+public class UninformedTreeTest {
 
-    DepthFirstSearch ts;
+    UninformedSearch ts;
 
-    public DFSCharTreeTest() {
+    public UninformedTreeTest() {
 
         Node i = new CharNode(new Character('i'));
         Node h = new CharNode(new Character('h'));
@@ -47,7 +47,7 @@ public class DFSCharTreeTest {
         e.addNeighbour(g);
         j.addNeighbour(k);
 
-        ts = new DepthFirstSearch(r);
+        ts = new UninformedSearch(r);
     }
 
     @BeforeClass
@@ -71,8 +71,8 @@ public class DFSCharTreeTest {
 
         char chars[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'r'};
 
-        String strat = "BFS";
-        
+        String strat = "DFS";
+        System.out.println("Strategy:" + strat);
         for (char c : chars) {
             List<Node> path = ts.searchTree(c, strat);
             for (Node n : path) {
@@ -96,18 +96,62 @@ public class DFSCharTreeTest {
             {'r'}
         };
 
-//        for (int j = 0; j < chars.length; ++j) {
-//            List<Node> path = ts.searchTree(chars[j], strat);
-//
-//            char result[] = new char[path.size()];
-//
-//            for (int i = 0; i < path.size(); ++i) {
-//                result[i] = ((Character) (path.get(i).getValue())).charValue();
-//
-//            }
-//            Assert.assertArrayEquals(result, solutions[j]);
-//        }
+        for (int j = 0; j < chars.length; ++j) {
+            List<Node> path = ts.searchTree(chars[j], strat);
 
+            char result[] = new char[path.size()];
+
+            for (int i = 0; i < path.size(); ++i) {
+                result[i] = ((Character) (path.get(i).getValue())).charValue();
+
+            }
+            Assert.assertArrayEquals(result, solutions[j]);
+        }
+        System.out.println("");
+    }
+
+    @Test
+    public void CharTreeBFS() {
+
+        char chars[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'r'};
+
+        String strat = "BFS";
+        System.out.println("Strategy:" + strat);
+        for (char c : chars) {
+            List<Node> path = ts.searchTree(c, strat);
+            for (Node n : path) {
+                System.out.print(n.getValue() + " ");
+            }
+            System.out.println("");
+        }
+
+        char solutions[][] = {
+            {'r', 'a'},
+            {'r', 'b'},
+            {'r', 'c'},
+            {'r', 'a', 'd'},
+            {'r', 'a', 'e'},
+            {'r', 'a', 'f'},
+            {'r', 'a', 'e', 'g'},
+            {'r', 'b', 'h'},
+            {'r', 'b', 'i'},
+            {'r', 'c', 'j'},
+            {'r', 'c', 'j', 'k'},
+            {'r'}
+        };
+
+        for (int j = 0; j < chars.length; ++j) {
+            List<Node> path = ts.searchTree(chars[j], strat);
+
+            char result[] = new char[path.size()];
+
+            for (int i = 0; i < path.size(); ++i) {
+                result[i] = ((Character) (path.get(i).getValue())).charValue();
+
+            }
+            Assert.assertArrayEquals(result, solutions[j]);
+        }
+        System.out.println("");
     }
 
 }

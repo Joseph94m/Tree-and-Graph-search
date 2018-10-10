@@ -13,11 +13,11 @@ import java.util.Stack;
  * @author Joseph
  * @github joseph94m
  */
-public class DepthFirstSearch<T extends Object> {
+public class UninformedSearch<T extends Object> {
 
     private Node root;
 
-    public DepthFirstSearch(Node root) {
+    public UninformedSearch(Node root) {
         this.root = root;
     }
 
