@@ -74,7 +74,7 @@ public class DFSCharTreeTest {
         String strat = "BFS";
         
         for (char c : chars) {
-            List<Node> path = ts.searchTree(c, 15, strat);
+            List<Node> path = ts.searchTree(c, strat);
             for (Node n : path) {
                 System.out.print(n.getValue() + " ");
             }
@@ -97,7 +97,7 @@ public class DFSCharTreeTest {
         };
 
 //        for (int j = 0; j < chars.length; ++j) {
-//            List<Node> path = ts.searchTree(chars[j], 15, strat);
+//            List<Node> path = ts.searchTree(chars[j], strat);
 //
 //            char result[] = new char[path.size()];
 //

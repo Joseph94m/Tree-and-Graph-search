@@ -21,13 +21,13 @@ public class DepthFirstSearch<T extends Object> {
         this.root = root;
     }
 
-    public List<Node> searchTree(T value, int depth, String Strategy) {
+    public List<Node> searchTree(T value, String Strategy) {
 
-        return BFS(value, root, depth, Strategy);
+        return search(value, root, Strategy);
 
     }
 
-    private List<Node> BFS(T value, Node root, int depth, String Strategy) {
+    private List<Node> search(T value, Node root, String Strategy) {
         if (!Strategy.equals("DFS") && !Strategy.equals("BFS")) {
             throw new IllegalArgumentException(Strategy + " Unknown strategy");
         }
@@ -41,13 +41,13 @@ public class DepthFirstSearch<T extends Object> {
         while (!queue.isEmpty()) {
             if (Strategy.equals("DFS")) {
                 path = queue.get(queue.size() - 1);
-                 queue.remove(queue.size() - 1);
+                queue.remove(queue.size() - 1);
             }
-              if (Strategy.equals("BFS")) {
+            if (Strategy.equals("BFS")) {
                 path = queue.get(0);
-                 queue.remove(0);
+                queue.remove(0);
             }
-           
+
             if (path.peek().getValue().equals(value)) {
                 return path;
             }
@@ -62,7 +62,6 @@ public class DepthFirstSearch<T extends Object> {
 
         }
 
-        //System.out.println(possiblePaths.get(0).get(0).getValue());
         return null;
     }
 }
