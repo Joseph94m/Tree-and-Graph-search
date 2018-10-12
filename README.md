@@ -1,4 +1,4 @@
-## This repository provides a simple implementation for Depth First Search (and in the future, BFS, UCS, A*) for trees and graphs.
+## This repository provides a simple implementation for Depth First Search and Breadth First Search for trees and graphs.
 ### The following image shows the tree that we run the tests on:
 
 
