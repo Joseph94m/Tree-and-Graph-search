@@ -1,7 +1,7 @@
 package GraphTest;
 
 import TreeGraphSearch.CharNode;
-import TreeGraphSearch.UninformedSearch;
+import TreeGraphSearch.*;
 import TreeGraphSearch.Node;
 import java.util.List;
 import org.junit.After;
@@ -19,7 +19,8 @@ import static org.junit.Assert.*;
  */
 public class UninformedGraphTest {
 
-    UninformedSearch ts;
+    UninformedSearch ts_dfs;
+    UninformedSearch ts_bfs;
 
     public UninformedGraphTest() {
 
@@ -57,7 +58,8 @@ public class UninformedGraphTest {
         f.addNeighbour(h);
         g.addNeighbour(i);
 
-        ts = new UninformedSearch(r);
+        ts_dfs = new DFS(r);
+        ts_bfs = new BFS(r);
     }
 
     @BeforeClass
@@ -82,7 +84,7 @@ public class UninformedGraphTest {
         System.out.println("Strategy:" + strat);
         char chars[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'r'};
         for (char c : chars) {
-            List<Node> path = ts.searchTree(c, strat);
+            List<Node> path = ts_dfs.searchTree(c);
             for (Node n : path) {
                 System.out.print(n.getValue() + " ");
             }
@@ -105,7 +107,7 @@ public class UninformedGraphTest {
         };
 
         for (int j = 0; j < chars.length; ++j) {
-            List<Node> path = ts.searchTree(chars[j], strat);
+            List<Node> path = ts_dfs.searchTree(chars[j]);
 
             char result[] = new char[path.size()];
 
@@ -124,7 +126,7 @@ public class UninformedGraphTest {
         System.out.println("Strategy:" + strat);
         char chars[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'r'};
         for (char c : chars) {
-            List<Node> path = ts.searchTree(c, strat);
+            List<Node> path = ts_bfs.searchTree(c);
             for (Node n : path) {
                 System.out.print(n.getValue() + " ");
             }
@@ -147,7 +149,7 @@ public class UninformedGraphTest {
         };
 
         for (int j = 0; j < chars.length; ++j) {
-            List<Node> path = ts.searchTree(chars[j], strat);
+            List<Node> path = ts_bfs.searchTree(chars[j]);
 
             char result[] = new char[path.size()];
 
