@@ -15,14 +15,7 @@ import java.util.Stack;
  */
 public abstract class UninformedSearch<T extends Object> {
 
-    private Node root;
 
-    public  UninformedSearch(Node root) {
-        this.root = root;
-    }
-
-    public abstract List<Node> searchTree(T value) ;
-
-    protected abstract  List<Node> search(T value, Node root) ;
+    public abstract  List<Node> search(T value, Node root) ;
        
 }

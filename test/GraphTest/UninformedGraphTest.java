@@ -21,7 +21,7 @@ public class UninformedGraphTest {
 
     UninformedSearch ts_dfs;
     UninformedSearch ts_bfs;
-
+    Node root;
     public UninformedGraphTest() {
 
         Node i = new CharNode(new Character('i'));
@@ -57,9 +57,9 @@ public class UninformedGraphTest {
         f.addNeighbour(r);
         f.addNeighbour(h);
         g.addNeighbour(i);
-
-        ts_dfs = new DFS(r);
-        ts_bfs = new BFS(r);
+        root =r;
+        ts_dfs = new DFS();
+        ts_bfs = new BFS();
     }
 
     @BeforeClass
@@ -84,7 +84,7 @@ public class UninformedGraphTest {
         System.out.println("Strategy:" + strat);
         char chars[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'r'};
         for (char c : chars) {
-            List<Node> path = ts_dfs.searchTree(c);
+            List<Node> path = ts_dfs.search(c,root);
             for (Node n : path) {
                 System.out.print(n.getValue() + " ");
             }
@@ -107,7 +107,7 @@ public class UninformedGraphTest {
         };
 
         for (int j = 0; j < chars.length; ++j) {
-            List<Node> path = ts_dfs.searchTree(chars[j]);
+            List<Node> path = ts_dfs.search(chars[j],root);
 
             char result[] = new char[path.size()];
 
@@ -126,7 +126,7 @@ public class UninformedGraphTest {
         System.out.println("Strategy:" + strat);
         char chars[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'r'};
         for (char c : chars) {
-            List<Node> path = ts_bfs.searchTree(c);
+            List<Node> path = ts_bfs.search(c,root);
             for (Node n : path) {
                 System.out.print(n.getValue() + " ");
             }
@@ -149,7 +149,7 @@ public class UninformedGraphTest {
         };
 
         for (int j = 0; j < chars.length; ++j) {
-            List<Node> path = ts_bfs.searchTree(chars[j]);
+            List<Node> path = ts_bfs.search(chars[j],root);
 
             char result[] = new char[path.size()];
 

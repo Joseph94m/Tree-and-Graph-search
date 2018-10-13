@@ -15,24 +15,9 @@ import java.util.Stack;
  */
 public class DFS<T extends Object> extends UninformedSearch{
     
-    private Node root;
-    
-    public DFS(Node root) {
-        super(root);
-        this.root=root;
-    }
-    
-    
-    
-    public List<Node> searchTree(Object value) {
-
-        return search(value, root);
-
-    }
-    
     
     @Override
-    protected  List<Node> search(Object value, Node root) {
+    public  List<Node> search(Object value, Node root) {
 
         List<Stack<Node>> queue = new LinkedList();
         Stack<Node> tmp = new Stack();

@@ -15,21 +15,9 @@ import java.util.Stack;
  */
 public class BFS<T extends Object> extends UninformedSearch {
 
-    private Node root;
-
-    public BFS(Node root) {
-        super(root);
-        this.root = root;
-    }
-
-    public List<Node> searchTree(Object value) {
-
-        return search(value, root);
-
-    }
 
     @Override
-    protected List search(Object value, Node root) {
+    public List search(Object value, Node root) {
 
         List<Stack<Node>> queue = new LinkedList();
         Stack<Node> tmp = new Stack();

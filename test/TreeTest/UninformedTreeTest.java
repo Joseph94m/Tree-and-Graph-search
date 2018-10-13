@@ -21,6 +21,7 @@ public class UninformedTreeTest {
     UninformedSearch ts_dfs;
     UninformedSearch ts_bfs;
 
+    Node root;
     public UninformedTreeTest() {
 
         Node i = new CharNode(new Character('i'));
@@ -47,9 +48,9 @@ public class UninformedTreeTest {
         c.addNeighbour(j);
         e.addNeighbour(g);
         j.addNeighbour(k);
-
-        ts_dfs = new DFS(r);
-        ts_bfs = new BFS(r);
+        root=r;
+        ts_dfs = new DFS();
+        ts_bfs = new BFS();
     }
 
     @BeforeClass
@@ -76,7 +77,7 @@ public class UninformedTreeTest {
         String strat = "DFS";
         System.out.println("Strategy:" + strat);
         for (char c : chars) {
-            List<Node> path = ts_dfs.searchTree(c);
+            List<Node> path = ts_dfs.search(c,root);
             for (Node n : path) {
                 System.out.print(n.getValue() + " ");
             }
@@ -99,7 +100,7 @@ public class UninformedTreeTest {
         };
 
         for (int j = 0; j < chars.length; ++j) {
-            List<Node> path = ts_dfs.searchTree(chars[j]);
+            List<Node> path = ts_dfs.search(chars[j],root);
 
             char result[] = new char[path.size()];
 
@@ -120,7 +121,7 @@ public class UninformedTreeTest {
         String strat = "BFS";
         System.out.println("Strategy:" + strat);
         for (char c : chars) {
-            List<Node> path = ts_bfs.searchTree(c);
+            List<Node> path = ts_bfs.search(c,root);
             for (Node n : path) {
                 System.out.print(n.getValue() + " ");
             }
@@ -143,7 +144,7 @@ public class UninformedTreeTest {
         };
 
         for (int j = 0; j < chars.length; ++j) {
-            List<Node> path = ts_bfs.searchTree(chars[j]);
+            List<Node> path = ts_bfs.search(chars[j],root);
 
             char result[] = new char[path.size()];
 
