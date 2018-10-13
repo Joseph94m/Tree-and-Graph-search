@@ -13,7 +13,7 @@ import java.util.Stack;
  *
  * @author Joseph
  */
-public class DFS<T extends Object> extends UninformedSearch{
+public class DFS extends UninformedSearch{
     
     
     @Override
